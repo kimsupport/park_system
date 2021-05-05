@@ -1,0 +1,52 @@
+doctype html
+html
+  head 
+    link(rel='stylesheet', href='stylesheets/styleMain.css')
+    link(rel='stylesheet', href='stylesheets/query.css')
+  body
+    -if(!(session.manager_id)){
+      .whole 
+      .header 
+        h1 K- 주차장
+        .button_cover 
+          button.login 관리자 로그인
+          button.enroll_manager 관리자 등록
+    -} else {
+      .whole 
+      .header 
+        h1 K- 주차장
+        .button_cover 
+          p #{session.manager_id}님! 반갑습니다.
+          button.manager_page 관리자 페이지
+          button.logout 로그아웃
+    -}
+      .entrance_car 
+        form.entrance
+          input.input_carNumber(type="text")
+          button.in_car(type="submit") 입차
+      .exit_car   
+        form.exit
+          input.output_carNumber(type="text")
+          button.out_car(type="submit") 출차
+        -if(is_car) {
+        p 주차장에 없는 차량입니다.
+        -}
+      .park_list 
+        h3 현재 주차장에 있는 차량 | 남은 주차 공간 : 
+          b.empty_space 
+        table 
+          thead
+            tr
+              th 차량 번호 
+              th 입차 시각
+          tbody.car_storage
+            tr 
+              td 
+              td    
+      footer 
+        small 90 MINIPROJECT KIMDAEYOUNG
+      
+  script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
+  script(src="javascripts/scriptMain.js")
+  script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
+  

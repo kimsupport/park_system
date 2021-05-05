@@ -1,0 +1,53 @@
+@media only screen and (max-width: 857px) {
+  footer {
+    font-size: 30px;
+  }
+  .default {
+    width: 70%;
+  }
+  .coupon {
+    width: 70%;
+  }
+  .car_reg {
+    width: 70%;
+  }
+  .look_up_cou {
+    width: 70%;
+  }
+  .look_up_car {
+    width: 70%;
+  }
+  .look_up_log {
+    width: 70%;
+  }
+  .payment {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 701px) {
+  .body {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 637px) {
+  .header {
+    flex-direction: column;
+    height: 40vh;
+  }
+  .payment {
+    font-size: 7px;
+  }
+}
+
+@media only screen and (max-width: 454px) {
+  .header .button_cover {
+    margin-top: -30px;
+    flex-direction: column;
+  }
+
+  footer {
+    font-size: 20px;
+  }
+}

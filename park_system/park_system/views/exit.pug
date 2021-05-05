@@ -1,0 +1,63 @@
+doctype html
+html
+  head 
+    link(rel='stylesheet', href='/stylesheets/styleExit.css')
+    link(rel='stylesheet', href='/stylesheets/query.css')
+  body
+    -if(!(session.manager_id)){
+    .whole 
+    .header 
+      h1 K- 주차장
+      .button_cover 
+        button.login 로그인
+        button.enroll_manager 관리자 등록
+    -} else {
+    .whole 
+    .header 
+      h1 K- 주차장
+      .button_cover 
+        p #{session.manager_id}님! 반갑습니다.
+        button.manager_page 관리자 페이지
+        button.logout 로그아웃
+    -}
+    -if(Number(car_info.routine)) {
+    .body 
+      .payment 
+        h1 정기차량입니다. 안녕히 가십시오. 
+        h1 차량번호 : 
+          b.routine_car_number #{car_info.car_number}
+        h1 출차시간 : 
+          b.routine_car_exit_time #{car_info.exit_time}
+        h1 정기기간 : 
+          b.routine_term #{car_info.routine_term}
+        
+      button.out_car 출차
+    -} else {
+    .body
+      .default_info 
+        h1 차량번호 : 
+          b.car_number #{car_info.car_number}
+        h1 입차시간 : 
+          b.car_entrance #{car_info.entrance_time}
+        h1 출차시간 : 
+          b.car_exit #{car_info.exit_time}
+        h1 요금 : 
+          b.fee #{car_info.total_fee}
+      .coupon
+        .code
+          h1.cou 쿠폰 코드 : 
+          input.cou_code(type="text")
+          button 쿠폰 제시!
+        .code_price  
+          h1 쿠폰 금액 : 
+            b.cou_price
+      h1.end_price 최종결제금액 : 
+        b #{car_info.total_fee}
+      .payment
+        h1.pay_text 주는 돈 :
+        input.pay(type="number", placeholder='기본값은 0원')
+        button.out_pay 결제!
+    -}
+    footer 90 MINIPROJECT KIMDAEYOUNG
+  script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
+  script(src="/javascripts/scriptExit.js")
